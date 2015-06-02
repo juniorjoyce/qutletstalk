@@ -1,0 +1,13 @@
+{
+    "name": "SocketioExample",
+    "version": "0.0.1",
+    "description": "SocketioExample",
+      "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+    "dependencies": {
+        "socket.io": "latest",
+        "moniker": "latest"
+    }
+}

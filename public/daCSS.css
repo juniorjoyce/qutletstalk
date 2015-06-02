@@ -1,0 +1,13 @@
+#blockwrapper{
+	border: 5px solid red;
+	height: 680px;
+	width: 820px;
+	position: absolute;
+	z-index: +1;
+}
+.squares{
+	border: 2px solid white;
+	height: calc(10% - 4px);
+	width: calc(10% - 4px);
+	display: inline-block;
+}

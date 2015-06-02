@@ -1,0 +1,79 @@
+body {
+  font-family: arial;
+  font-size: 12px;
+  margin: 0px;
+  padding: 0px;
+  background: #09368b url(../win7-desktop-bg.jpg);
+}
+.SoapBubbleMachine {
+  z-index: 1000;
+  position: absolute;
+  cursor: move;
+  height: 100px;
+  height: 100px;
+  width: 200px;
+}
+.SoapBubbleMachine button {
+  padding: 1px 3px 1px 3px;
+}
+#SoapBubbleMachineNumber1 {
+  top: 45%;
+  left: 350px;
+}
+#SoapBubbleMachineNumber2 {
+  bottom: 150px;
+  right: 100px;
+}
+#control {
+  margin: 10px;
+  width: 223px;
+  height: 527px;
+  padding: 0px 40px 0px 40px;
+  background: url(../images/control-bg.png);
+  color: white;
+}
+#header {
+  cursor: move;
+  height: 100px;
+}
+.bubble {
+  z-index: 1001;
+}
+#xxx {
+  margin-top: 35px;
+  margin-left:0px;
+  width: 225px;
+}
+h1 {
+font-size: 22px;
+margin: 12px 0px 10px 0px;
+}
+#navigation {
+  margin: 0px;
+  height: 60px;
+  background-color: #333;
+}
+#navigation ul {
+  padding: 10px 5px 5px 5px;
+  margin: 0px;
+  list-style: none;
+}
+#navigation ul li {
+  padding: 0px;
+  margin: 0px;
+  float: left;
+  border-right: 1px solid #aaa;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+#navigation ul li a{
+  color: white;
+}
+#navigation p {
+  padding: 5px;
+  color: white;
+  font-size: 11px;
+}
+#particleSizeMinMax, #particleAnimationDuration, #particleScatteringX, #particleScatteringY {
+  margin: 10px 0px 3px 0px;
+}

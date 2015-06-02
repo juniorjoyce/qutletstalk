@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Admin Animal Game</title>
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			html, body {
+				margin: 0;
+				padding: 20px;
+				font-family: Tahoma;
+				font-size: 16px;
+			}
+			#progress {
+				cursor: pointer;
+				width:100%;
+				padding: 10px;
+				text-align: right;
+				font-weight: bold;
+				color: #FFF;
+			}
+			#progress:active {
+				
+			}
+			#win {
+				width: 150px;
+				padding: 10px;
+				text-align: right;
+				font-weight: bold;
+				border-right: solid 1px #000;
+			}
+			
+			#g {
+    height:440px;
+    width:440px;
+  
+	text-align:center;
+	
+}
+.card {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+}
+
+.black {
+	background-color: black;
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+}
+
+.navy {
+	background-color: navy;
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+}
+
+.red {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+	background-color: red;
+}
+
+.blue {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+	background-color: blue;
+}
+
+.green {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+	background-color: green;
+}
+
+.orange {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+	background-color: orange;
+}
+
+.yellow {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+	background-color: yellow;
+}
+
+.lime {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+	background-color: lime;
+}
+
+.layer {
+	
+
+    margin-left:4px;
+    height:438px;
+    width:438px;
+    background-color: transparent;
+    position:absolute;
+	text-align:center;
+}
+
+#NewGame {
+    margin-top:-442px;
+    margin-left: auto;
+    margin-right: auto;
+    height:100%;
+    width:438px;
+    background-color: white;
+    position:center;
+	text-align:center;
+}
+
+.cardOut {
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 3px;
+	float:left;
+	background-color: #CCC !important;
+}
+		</style>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var welcome = document.getElementById("welcome");
+				var allUsers = document.getElementById("users");
+				var cat = document.getElementById("cat");
+				var results = document.getElementById("results");
+				var dog = document.getElementById("dog");
+				var cow = document.getElementById("cow");
+				var duck = document.getElementById("duck");
+				var bird = document.getElementById("bird");
+				var pig = document.getElementById("pig");
+				var sheep= document.getElementById("sheep");
+				
+		
+				var socket = io.connect();
+				socket.on('welcome', function (data) {
+					console.log(data);
+					welcome.innerHTML = "Select a Animal";
+				});
+				socket.on('users', function (data) {
+					
+				});
+				socket.on('update', function (data) {
+					
+				});
+				socket.on('win', function (data) {
+					results.innerHTML = data.message;
+					
+				});
+				cat.onclick = function() {
+					socket.emit("cat");
+				}
+				dog.onclick = function() {
+					socket.emit("dog");
+				}
+				cow.onclick = function() {
+					socket.emit("cow");
+				}
+				duck.onclick = function() {
+					socket.emit("duck");
+				}
+				bird.onclick = function() {
+					socket.emit("bird");
+				}
+				pig.onclick = function() {
+					socket.emit("pig");
+				}
+				sheep.onclick = function() {
+					socket.emit("sheep");
+				}
+			}
+			
+		</script>
+	</head>
+	<body class="main">
+		    <nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"></a>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="/index.html">Home</a>
+      </li>
+      <li>
+        <a href="/games.html">Games</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="users"></div>
+		<hr />
+<div style="margin:100px;">
+
+    <div class="jumbotron"  style="padding:40px;">
+	<center>
+      <div class="main">
+
+		<div id='g'></div>
+        <div class="layer"></div>
+	
+        <div id="NewGame"><br><br><h1>Animal Game</h1><br><br>
+	<div id="welcome"></div>
+	<button id="cat">
+<img width="100px" height="100px" src="images/cat.png" />
+</button>
+		<button id="dog">
+<img width="100px" height="100px"src="images/dog.png" />
+</button>
+			<button id="cow">
+<img width="100px" height="100px"src="images/cow.png" />
+</button>
+				<button id="duck">
+<img width="100px" height="100px"src="images/duck.png" />
+</button>
+					<button id="bird">
+<img width="100px" height="100px"src="images/bird.png" />
+</button>
+						<button id="pig">
+<img width="100px" height="100px"src="images/pig.png" />
+</button>
+							<button id="sheep">
+<img width="100px" height="100px"src="images/sheep.png" />
+</button>
+	<hr />
+	<div id="results"></div>
+		<div id="win"></div>
+		<hr />
+		<div id="users"></div>
+		<hr />
+		
+	
+	
+	</div>
+        
+  </div>
+      
+    </div>
+        
+  </div>
+        
+		
+		
+	</body>
+</html>
